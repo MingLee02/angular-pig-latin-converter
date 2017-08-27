@@ -10,14 +10,16 @@ module.exports = function (grunt) {
     }
 
     grunt.initConfig({
-
         config: {
             baseDir: 'app',
+            libDir: '<%= config.baseDir %>/lib',
             scriptsDir: '<%= config.baseDir %>/scripts',
-            srcScriptsDir: '<%= config.scriptsDir %>/src',
             compiledScriptsDir: '<%= config.scriptsDir %>/compiled-es5',
             buildScriptsDir: '<%= config.scriptsDir %>/js-build',
-            feTests: 'fe-tests/**/*.js'
+            files: {
+                src: '<%= config.scriptsDir %>/**/*.js',
+                karmaTests: '<%= config.baseDir %>/tests/unit/**/*.js',
+            }
         }
     });
 
@@ -48,6 +50,8 @@ module.exports = function (grunt) {
     });
 
     // - - - T A S K S - - -
+    grunt.loadTasks('./grunt');
+
     grunt.registerTask('default', 'dev');
 
     grunt.registerTask('dev', function () {
@@ -57,4 +61,16 @@ module.exports = function (grunt) {
             'watch'
         ]);
     });
+
+    grunt.registerTask('test', 'Run the tests.', function (env) {
+        var karmaTarget = 'dev';
+        if (grunt.option('debug')) {
+            karmaTarget = 'debug';
+        }
+        grunt.task.run([
+            'karma:' + karmaTarget,
+            'errorcodes',
+        ]);
+    });
+
 };
