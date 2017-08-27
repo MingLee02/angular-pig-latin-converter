@@ -61,16 +61,4 @@ module.exports = function (grunt) {
             'watch'
         ]);
     });
-
-    grunt.registerTask('test', 'Run the tests.', function (env) {
-        var karmaTarget = 'dev';
-        if (grunt.option('debug')) {
-            karmaTarget = 'debug';
-        }
-        grunt.task.run([
-            'karma:' + karmaTarget,
-            'errorcodes',
-        ]);
-    });
-
 };
