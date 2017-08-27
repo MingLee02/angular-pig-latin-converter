@@ -2,6 +2,6 @@
 
 # Installation
 In a bash shell `make install`
-else
-`npm install`
-`bower install`
+	else
+		`npm install`
+		`bower install`
