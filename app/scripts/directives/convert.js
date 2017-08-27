@@ -27,10 +27,15 @@
                     }
 
                     scope.convert = function (string) {
+                        if (!string) {
+                            return;
+                        }
+
                         var conversion = [];
 
                         string.split(' ').forEach(function (word) {
                             // Disallow numerical characters
+                            console.log(isNaN(parseInt(word)))
                             if (isNaN(parseInt(word)) === true) {
                                 if(checkStartsWithVowel(word.charAt(0)) === true) {
                                     conversion.push(vowelConversion(word))
@@ -41,14 +46,15 @@
                         })
 
                         scope.result = conversion.join(' ');
-
-                        var store = {
-                            'original': string,
-                            'conversion': scope.result
+                        if (scope.result) {
+                            var store = {
+                                'original': string,
+                                'conversion': scope.result
+                            }
+                            historyStorage.setHistory(store)
+                            scope.$emit('history set');
+                            scope.normalText = ' '
                         }
-                        historyStorage.setHistory(store)
-                        scope.$emit('history set');
-                        scope.normalText = ' '
                     }
                 }
             }

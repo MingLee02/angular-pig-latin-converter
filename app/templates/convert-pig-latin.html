@@ -1,6 +1,14 @@
-<textarea ng-model='normalText'></textarea>
-<button ng-click='convert(normalText)'>Convert</button>
+<form class="form-horizontal">
+	<fieldset>
+		<div class="form-group">
+		    <div> 
+		        <textarea class="form-control" rows="5" placeholder="Text to be converted" ng-model='normalText'></textarea>
+		    </div>
+		</div>
 
+		<button type="button" class="btn btn-primary" ng-click='convert(normalText)'>Convert</button>
+	</fieldset>
+</form>
 <div ng-if="result">
 	<h2>Converted String</h2>
 	<p>{{ result }}</p>

@@ -2,7 +2,8 @@
   "name": "angular-pig-latin-converter",
   "dependencies": {
     "angular": "1.5.8",
-    "angular-route": "1.5.8"
+    "angular-route": "1.5.8",
+    "bootstrap": "git@github.com:twbs/bootstrap.git#3.3.7"
   },
   "devDependencies": {
     "angular-mocks": "1.5.8"

@@ -1,0 +1,37 @@
+h1 {
+    margin: 0;
+    margin-bottom: 50px;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #b2cecf;
+    background-image:-moz-linear-gradient(#b2cecf, white);
+    background-image:-webkit-linear-gradient(#b2cecf, white);
+    background-image:-o-linear-gradient(#b2cecf, white);
+    background-image:-ms-linear-gradient(#b2cecf, white);
+    background-image:linear-gradient(#b2cecf, white);
+}
+
+textarea {
+    background: none repeat scroll 0 0 #E8E8E8 !important;
+    transition: background-color 0.2s ease 0s !important;
+     margin-left: 10px
+}
+
+textarea:focus {
+    background: none repeat scroll 0 0 #FFFFFF !important;
+    outline-width: 0;
+}
+
+.element-wrapper {
+    margin: auto;
+    width: 50%;
+}
+
+.items {
+    margin-left: 10px
+}

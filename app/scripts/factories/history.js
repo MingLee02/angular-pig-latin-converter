@@ -11,11 +11,11 @@
             }
 
             var setHistory = function (element) {
-                if (history.length < 11) {
+                if (history.length < 10) {
                     history.push(element);
                     localStorage.setItem('cookieHistory', JSON.stringify(history));
                 } else {
-                    history[10] = element;
+                    history[9] = element;
                     localStorage.setItem('cookieHistory', JSON.stringify(history));
                 }
             }
