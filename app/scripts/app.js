@@ -2,7 +2,8 @@
     'use strict';
     var module = angular.module('app', [
         'ngRoute',
-        'home-controller'
+        'app-controller',
+        'convert'
     ]);
 
     module.config([
@@ -11,7 +12,7 @@
         {
             $routeProvider.when('/', {
                 templateUrl: '../templates/home.html',
-                controller: 'homeCtrl',
+                controller: 'appCtrl',
                 name: 'home'
             });
         }

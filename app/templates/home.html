@@ -1,1 +1,12 @@
 <h1>Pig Latin Converter</h1>
+
+<div ng-if="historyItems">
+	<h2>Conversion History</h2>
+	<ul ng-repeat="item in historyItems track by $index">
+		<li>
+			Origional - {{ item.original }} : Pig latin - {{ item.conversion }}
+		</li>
+	</ul>
+</div>
+
+<div convert-pig-latin></div>
