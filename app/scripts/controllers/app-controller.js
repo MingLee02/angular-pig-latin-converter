@@ -12,14 +12,18 @@
         function ($scope, historyStorage) {
             $scope.historyItems = null;
 
-            if (localStorage.getItem('cookieHistory') !== null) {
+            var onPageLoadGetHistory = function () {
                 $scope.historyItems = JSON.parse(localStorage.getItem('cookieHistory'));
                 angular.forEach($scope.historyItems, function(value) {
                     historyStorage.setHistory(value)
                 });
+            }
+
+            if (localStorage.getItem('cookieHistory') !== null) {
+                onPageLoadGetHistory();
             };
 
-            $scope.$on('history set', function() { 
+            $scope.$on('conversion added to history', function() {
                 $scope.historyItems = historyStorage.getHistory();
             });
         }

@@ -1,16 +1,16 @@
 (function (angular) {
     'use strict';
 
-    var module = angular.module('convert', ['history']);
+    const module = angular.module('convert', ['history']);
 
-    module.directive('convertPigLatin',[
-      'historyStorage',
+    module.directive('convertPigLatin', [
+        'historyStorage',
         function(historyStorage) {
             return {
                 restrict: 'A',
                 templateUrl: '../../templates/convert-pig-latin.html',
                 link: function (scope) {
-                    var vowels = ['a', 'e', 'i', 'o', 'u'];
+                    const vowels = ['a', 'e', 'i', 'o', 'u'];
 
                     const checkStartsWithVowel = function (letter) {
                         if (vowels.indexOf(letter) > -1) {
@@ -31,30 +31,36 @@
                             return;
                         }
 
-                        var conversion = [];
+                        const conversion = [];
 
                         string.split(' ').forEach(function (word) {
-                            // Disallow numerical characters
-                            console.log(isNaN(parseInt(word)))
-                            if (isNaN(parseInt(word)) === true) {
-                                if(checkStartsWithVowel(word.charAt(0)) === true) {
-                                    conversion.push(vowelConversion(word))
-                                } else {
-                                    conversion.push(consonantConversion(word))
-                                }
+                            if(checkStartsWithVowel(word.charAt(0))) {
+                                conversion.push(vowelConversion(word))
+                            } else {
+                                conversion.push(consonantConversion(word))
                             }
                         })
 
                         scope.result = conversion.join(' ');
+
                         if (scope.result) {
-                            var store = {
-                                'original': string,
-                                'conversion': scope.result
-                            }
-                            historyStorage.setHistory(store)
-                            scope.$emit('history set');
-                            scope.normalText = ' '
-                        }
+                            updateConversionHistory(string)
+                        };
+                        resetForm()
+                    };
+
+                    var updateConversionHistory = function(string) {
+                        const store = {
+                            'original': string,
+                            'conversion': scope.result
+                        };
+                        historyStorage.setHistory(store);
+                        scope.$emit('conversion added to history');
+                    };
+
+                    var resetForm = function() {
+                        scope.normalText = ' ';
+                        scope.convertForm.$setUntouched();
                     }
                 }
             }
