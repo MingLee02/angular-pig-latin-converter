@@ -54,9 +54,14 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', 'dev');
 
+    grunt.registerTask('minify-app', function () {
+        grunt.task.run([
+            'browserify'
+        ]);
+    });
+
     grunt.registerTask('dev', function () {
         grunt.task.run([
-            'browserify',
             'connect:dev',
             'watch'
         ]);

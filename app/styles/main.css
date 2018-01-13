@@ -19,7 +19,7 @@ body {
 textarea {
     background: none repeat scroll 0 0 #E8E8E8 !important;
     transition: background-color 0.2s ease 0s !important;
-     margin-left: 10px
+    margin-left: 10px;
 }
 
 textarea:focus {
@@ -33,5 +33,5 @@ textarea:focus {
 }
 
 .items {
-    margin-left: 10px
+    margin-left: 10px;
 }

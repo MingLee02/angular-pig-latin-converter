@@ -2,11 +2,12 @@
 	<fieldset>
 		<div class="form-group">
 		    <div> 
-		        <textarea class="form-control" rows="5" placeholder="Text to be converted" ng-model='normalText'></textarea>
+		        <textarea class="form-control" rows="5" placeholder="Text to be converted" ng-model='normalText' required></textarea>
 		    </div>
 		</div>
 
-		<button type="button" class="btn btn-primary" ng-click='convert(normalText)'>Convert</button>
+		<button type="button" class="btn btn-primary" ng-click='convert(normalText)'
+		ng-disabled="convertForm.$invalid">Convert</button>
 	</fieldset>
 </form>
 <div ng-if="result">

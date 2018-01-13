@@ -8,7 +8,7 @@
             
             var getHistory = function () {
                 return history;
-            }
+            };
 
             var setHistory = function (element) {
                 if (history.length < 10) {
@@ -18,7 +18,7 @@
                     history[9] = element;
                     localStorage.setItem('cookieHistory', JSON.stringify(history));
                 }
-            }
+            };
 
             return {
                 'getHistory': getHistory,
@@ -26,5 +26,4 @@
             };
         }
     ]);
-
 }(window.angular));
