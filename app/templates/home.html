@@ -6,7 +6,7 @@
     <h2>Conversion History</h2>
     <ul class="list-unstyled" ng-repeat="item in historyItems track by $index">
         <li class='items'>
-            {{ $index + 1 }} Origional - {{ item.original }} : Pig latin - {{ item.conversion }}
+            {{ $index + 1 }}) Origional Text: {{ item.original }} / Pig latin Text: {{ item.conversion }}
         </li>
     </ul>
     <button type="button" class="btn btn-primary" ng-click='clearHistory()'>Clear History?</button>

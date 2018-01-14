@@ -20,11 +20,10 @@
             };
             
             onPageLoadCheckLocalStorageAndSetHistory();
-            console.log($scope)
             
             $scope.clearHistory = function () {
-                $scope.historyItems = undefined;
-                localStorage.removeItem('cookieHistory');
+                historyStorage.clearHistory();
+                $scope.historyItems = undefined
             };
 
             $scope.$on('history updated', function() {
