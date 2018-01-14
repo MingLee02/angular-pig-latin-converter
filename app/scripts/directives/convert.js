@@ -55,7 +55,7 @@
                     };
 
                     var resetForm = function() {
-                        scope.normalText = ' ';
+                        scope.normalText = '';
                         scope.convertForm.$setUntouched();
                     };
                 }

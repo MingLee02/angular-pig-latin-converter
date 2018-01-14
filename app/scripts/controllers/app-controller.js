@@ -20,6 +20,7 @@
             };
             
             onPageLoadCheckLocalStorageAndSetHistory();
+            console.log($scope)
             
             $scope.clearHistory = function () {
                 $scope.historyItems = undefined;
